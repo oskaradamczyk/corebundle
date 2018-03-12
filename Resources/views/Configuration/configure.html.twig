@@ -1,0 +1,7 @@
+{{ form(form, { 'attr': { 'id': 'configuration' }}) }}
+<button type="submit" form="configuration">{{ 'core.configuration.submit' }}</button>
+{% for message in app.flashes('success') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}

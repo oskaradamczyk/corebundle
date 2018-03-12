@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    CoreBundle\:
+        resource: '%kernel.project_dir%/src/CoreBundle/*'
+        exclude: '%kernel.project_dir%/src/CoreBundle/{Entity,Repository,Tests}'
+
+    CoreBundle\Controller\:
+        resource: '%kernel.project_dir%/src/CoreBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    CoreBundle\Service\BundleService:
+        public: true
+        arguments:
+            $searchDir: '%kernel.project_dir%/src'
+            $coreBundleName: '%core.core_bundle_name%'
+
+    CoreBundle\Service\ConfigurationService:
+        public: true
+        arguments:
+            $bundlesYamlDir: '%kernel.project_dir%/app/config/bundles.yml'

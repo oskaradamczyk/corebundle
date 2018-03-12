@@ -1,0 +1,6 @@
+services:
+    CoreBundle\Handler\ConfigurationHandler:
+        arguments:
+            $configYamlDir: '%kernel.project_dir%/app/config/config_bundles.yml'
+            $routingYamlDir: '%kernel.project_dir%/app/config/routing_bundles.yml'
+            $bundlesYamlDir: '%kernel.project_dir%/app/config/bundles.yml'
